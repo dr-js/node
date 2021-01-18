@@ -405,7 +405,10 @@ body which has been transmitted are equal or not.
 ### Event: `'abort'`
 <!-- YAML
 added: v1.4.1
+deprecated: REPLACEME
 -->
+
+> Stability: 0 - Deprecated. Listen for the `'close'` event instead.
 
 Emitted when the request has been aborted by the client. This event is only
 emitted on the first call to `abort()`.
@@ -562,7 +565,7 @@ added: v0.7.8
 -->
 
 Emitted when the underlying socket times out from inactivity. This only notifies
-that the socket has been idle. The request must be aborted manually.
+that the socket has been idle. The request must be destroyed manually.
 
 See also: [`request.setTimeout()`][].
 
@@ -643,11 +646,14 @@ in the response to be dropped and the socket to be destroyed.
 ### `request.aborted`
 <!-- YAML
 added: v0.11.14
+deprecated: REPLACEME
 changes:
   - version: v11.0.0
     pr-url: https://github.com/nodejs/node/pull/20230
     description: The `aborted` property is no longer a timestamp number.
 -->
+
+> Stability: 0 - Deprecated. Check [`request.destroyed`][] instead.
 
 * {boolean}
 
@@ -1950,7 +1956,10 @@ may be reused multiple times in case of keep-alive.
 ### Event: `'aborted'`
 <!-- YAML
 added: v0.3.8
+deprecated: REPLACEME
 -->
+
+> Stability: 0 - Deprecated. Listen for `'close'` event instead.
 
 Emitted when the request has been aborted.
 
@@ -1964,7 +1973,10 @@ Indicates that the underlying connection was closed.
 ### `message.aborted`
 <!-- YAML
 added: v10.1.0
+deprecated: REPLACEME
 -->
+
+> Stability: 0 - Deprecated. Check `message.destroyed` from {stream.Readable}.
 
 * {boolean}
 
@@ -2771,6 +2783,7 @@ try {
 [`removeHeader(name)`]: #http_request_removeheader_name
 [`request.end()`]: #http_request_end_data_encoding_callback
 [`request.destroy()`]: #http_request_destroy_error
+[`request.destroyed`]: #http_request_destroyed
 [`request.flushHeaders()`]: #http_request_flushheaders
 [`request.getHeader()`]: #http_request_getheader_name
 [`request.setHeader()`]: #http_request_setheader_name_value
